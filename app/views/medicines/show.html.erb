@@ -1,0 +1,14 @@
+<div class="container">
+<p><h4><b>Details Of Your medicine:</b></h4></p>
+<table class="table">
+   <thead><th><p>Name of medicine: <%= @medicine.name %><br/></p></th></thead>
+   <thead><th><p>Price: <%= @medicine.price %><br/></p></th></thead>
+   <thead><th><p>quantity: <%= @medicine.quantity %><br/></p></th></thead>
+   <thead><th><p>selling quantity:<%= @medicine.selling_quantity%><br/></p></th></thead>
+   <thead><th><p>expiry date: <%= @medicine.expiry_date%><br/></p></th></thead>
+   
+</table>
+</div>
+<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
+<%= link_to 'Back', medicines_path %>
+<div>

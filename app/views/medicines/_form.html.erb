@@ -1,0 +1,37 @@
+<%= form_for(@medicine) do |f| %>
+  <% if @medicine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
+
+      <ul>
+      <% @medicine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+      <label for="name">Name:</label>
+      <%=f.text_field :name,:class=>"form-control",:placeholder=>"Enter Name"%>
+    </div>
+    <div class="form-group">
+      <label for="quantity">quantity:</label>
+      <%=f.text_field :quantity,:class=>"form-control",:placeholder=>"Enter quantity"%>
+    </div>
+    <div class="form-group">
+      <label for="selling_quantity">selling_quantity:</label>
+      <%=f.text_field :selling_quantity,:class=>"form-control",:placeholder=>"Enter selling_quantity"%>
+    </div>
+    <div class="form-group">
+      <label for="price">price:</label>
+      <%=f.number_field :price,:class=>"form-control",:placeholder=>"Re-Enter price"%>
+    </div>
+     <div class="form-group">
+      <label for="expiry_date">expiry date:</label>
+      <%=f.date_select :expiry_date,:class=>"form-control",:placeholder=>"Re-Enter date"%>
+    </div>
+
+    <%= f.submit 'submit',:class=>"btn btn-default" %>
+  <% end %>
+</div>

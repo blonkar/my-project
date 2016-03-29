@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<style>
+body {
+    background-image: url('/assets/medicine.jpg');
+
+}
+</style>
+<h2 style="background-color:black">
+Welcome to Medicines Management System <%= current_user.name %>
+</h2>
+<%= form_tag(medicines_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Medicines" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Selling quantity</th>
+      <th>Expiry date</th>
+      <th>Price</th>
+      <th>show</th>
+      <th>edit</th>
+      <th>delete</th>
+      <th>Buy</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicines.each do |medicine| %>
+      <tr>
+        <td><%= medicine.name %></td>
+        <td><%= medicine.quantity %></td>
+        <td><%= medicine.selling_quantity %></td>
+        <td><%= medicine.expiry_date %></td>
+        <td><%= medicine.price %></td>
+        <td><%= link_to 'Show', medicine %></td>
+        <td><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
+        <td><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Buy', medicine %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br/>
+
+<%= link_to 'New Medicine', new_medicine_path %>
+<%= link_to 'Logout', logout_url, method: :delete %>

@@ -1,0 +1,12 @@
+<div class="container">
+<p><h4><b>Details Of Your medicine:</b></h4></p>
+<table class="table">
+	<% @exp_medicine.each do |exp_medicine| %>
+   <thead><th><p>Name : <%= exp_medicine.name %><br/></p></th></thead>
+   <thead><th><p>Price: <%= exp_medicine.price %><br/></p></th></thead>
+   <thead><th><p>quantity: <%= exp_medicine.quantity %><br/></p></th></thead>
+   <thead><th><p>selling quantity:<%= exp_medicine.selling_quantity%><br/></p></th></thead>
+   <thead><th><p>expiry date: <%= exp_medicine.expiry_date%><br/></p></th></thead>
+   <%end%>
+</table>
+</div>
